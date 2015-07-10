@@ -34,9 +34,9 @@ int main(int argc, char const *argv[])
 	
 	if(i && j && k && l)
 		printf("Very strong\n");
-	else if(i && j && k )
+	else if(i && j && k || j && k && l || k && l && i || l && i && j)
 		printf("Strong\n");
-	else if(i && j)
+	else if(i && j || j && k || k && l || l && i || i && k || j && l)
 		printf("Moderate\n");
 	else if(i || j || k || l)
 		printf("Weak\n");
