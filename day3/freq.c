@@ -10,7 +10,6 @@ int main()
    FILE *fp;
 
    fp = fopen("s.txt","r"); // read mode
-
    if( fp == NULL )
    {
       perror("Error while opening the file.\n");
@@ -19,20 +18,30 @@ int main()
    printf("The cypher text is : \n");
    while( ( ch = fgetc(fp) ) != EOF )
    {
-      ++arr[ch - 'a'];
-      temp = (ch -'a' + 7) % 26;
-      ++cypher[temp];
-      printf("%c",(temp + 'a'));
+      if(ch >= 'a' && ch <= 'z')
+      {
+         ++arr[ch - 'a'];
+         //encryption by caesar cypher with key 7
+         temp = (ch -'a' + 7) % 26;
+         ++cypher[temp];
+         printf("%c",(temp + 'a'));
+      }
+      if(ch >= 'A' && ch <= 'Z')
+      {
+         ++arr[ch - 'A'];
+         //encryption by caesar cypher with key 7
+         temp = (ch -'A' + 7) % 26;
+         ++cypher[temp];
+         printf("%c",(temp + 'A'));
+      }
    }
    fclose(fp);
    printf("\n\n");
    printf("The frequency of the plain text is :\n");
-
    ch = 'a';
    for(i = 0 ; i < 26 ; i++)
    {
       printf("%c : ",ch);
-      
       for(j = 1 ; j <= arr[i]; j++)
       {
          printf("-");
@@ -40,13 +49,11 @@ int main()
       printf("\n");
       ++ch;
    }
-
    printf("The frequency of the cypher text is :\n");
    ch = 'a';
    for(i = 1 ; i <= 26 ; i++)
    {
       printf("%c : ",ch);
-      
       for(j = 1 ; j <= cypher[i]; j++)
       {
          printf("-");
@@ -54,6 +61,5 @@ int main()
       printf("\n");
       ++ch;
    }
-
    return 0;
 }
