@@ -39,7 +39,7 @@ int main(int argc, char const *argv[]){
 			if(isdigit(c)) {
 				ungetc(c, img);
 				fscanf(img,"%d",&n);
-				printf("%d",n);
+				// printf("%d",n);
 			}
 			r = n%2;
 			msg <<= 1;
