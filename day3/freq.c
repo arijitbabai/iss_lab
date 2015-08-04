@@ -49,7 +49,7 @@ int main()
       printf("\n");
       ++ch;
    }
-   printf("The frequency of the cypher text is :\n");
+   printf("The frequency of the cypher text with key value 7 is :\n");
    ch = 'a';
    for(i = 1 ; i <= 26 ; i++)
    {
