@@ -39,14 +39,14 @@ int main(int argc, char const *argv[])
    while(*p!= '\0')
    {
       x = *p;
-      i = 0;
-      while(i < 8)
+      i = 7;
+      while(i => 0)
       {
          if(x%2 != 0)
          {
             a[count][i] = 1;
          }  
-            i++;
+            i--;
          x = x/2;
       }
       count++;
