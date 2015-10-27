@@ -6,10 +6,11 @@ void main(){
 	output = fopen("output.txt","w");
 	int i,j,keylen = 3,t1,k,temp;
 	char c;
-	int s[256],t[256],key[25];
+	int s[256],t[256];
+	char key[25];
 	//taking key input
 	for(i = 0 ; i < keylen ; i++){
-		scanf("%d",&key[i]);
+		scanf("%c",&key[i]);
 	}
 	
 	//initializing s
@@ -42,7 +43,7 @@ void main(){
 		k = s[t1];
 		// printf("%x, %d,",c, k);
 		// printf("Size = %ld  ",sizeof(c));
-		printf("%02x\n",c ^ k);				
+		fprintf(output,"%02x",c ^ k);				
 		
 	
 	}	
